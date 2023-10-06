@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 2. Jupyter Notebook Interface </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">2. Jupyter Notebook Interface</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="2-jupyter-notebook-interface">2. Jupyter Notebook Interface</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>Describe the basics of the jupyter notebook interface.</li>
+    <li>Demonstrate the various basic cell types notebooks use.</li>
+    <li>Demonstrate how notebooks deal with code blocks and the concept of restarting the kernel.</li>
+  </ul>
+
+</div>
+
+<h2 id="notebook-basics">Notebook Basics</h2>
+
+<p><a href="https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a></p>
+
+<p>The button above will take you to the associated binder website for this lesson. When you load up the binder webpage you should be presented with a site that looks something like the image below.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_1_basic_binder.png" style="max-width: 60%;" alt="/Basic%20Binder%20Webpage" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>This site contains a variety of buttons to create various file types. However, for now we are going to do two things.</p>
+
+<ol>
+  <li>Double click on the “notebook” directory in the file browser
+    <ul>
+      <li>This directory contains all the Jupyter notebooks associated with this lesson</li>
+    </ul>
+  </li>
+  <li>Click on the “Python 3” box beneath the Notebook label. This button is next to the arrow labeled “Create new Jupyter Notebook”
+    <ul>
+      <li>This will create a Jupyter notebook called “Untitled.ipynb” with a single blank cell</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Once you click on on the Python 3 button under the notebook label you will be presented with a new screen which will look something like the image below (note that the image has been cropped to reduce space).</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_2_new_notebook.png" style="max-width: 60%;" alt="/New%20Notebook%20Page" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>This notebook is blank except for a single cell. This blank cell is a code cell that you can type in. For example if you type in some python code like <code class="language-plaintext highlighter-rouge">print("This is a code cell")</code> and then click the run button you will see the output appear beneath the cell.</p>
+
+<h3 id="cell-types">Cell Types</h3>
+
+<p>Cells are the base unit in Jupyter notebooks. A notebook is essentially just a collection of cells of different types. In Jupyter notebooks there are three primary types of cells:</p>
+
+<ul>
+  <li><strong>Code</strong> cells
+    <ul>
+      <li>Code cells treat everything typed inside them as code</li>
+      <li>When they are “run” they will run the code they find inside them</li>
+    </ul>
+  </li>
+  <li><strong>Markdown</strong> cells
+    <ul>
+      <li>Markdown cells treat everything typed inside them as markdown</li>
+      <li>When they are “run” they will format the text inside them based on jupyter markdown</li>
+    </ul>
+  </li>
+  <li><strong>Raw</strong> cells
+    <ul>
+      <li>These cells treat everything inside them as raw text</li>
+      <li>If you “run” these cells nothing will happen</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If you double click the jupiter notebook called “02-jupyter-notebook-interface.ipynb” that can be found in the file browser side tab you will be presented with a notebook that already has some cells filled in. Underneath the header “Cell Types” you will find three different cells that each correspond to one type of cell. You can select the top cell and then click the run button three times to run all three cells of these cells.</p>
+
+<blockquote class="callout">
+  <h2 id="running-cells">Running Cells</h2>
+
+  <p>You can also run a selected cell by pressing <kbd>Shift</kbd>+<kbd>Return</kbd></p>
+
+</blockquote>
+
+<p>You will see that the action performed after running a cell is different for each of the cells.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_3_cell_types.png" style="max-width: 60%;" alt="/Notebook%20Cell%20Types" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<h3 id="editing-cells">Editing Cells</h3>
+
+<p>You can also edit cells after running them by clicking on the cell like normal text. For markdown cells you will need to double click on the cell area in order revert it back into a editable format.</p>
+
+<p>Markdown and raw cells can be edited and run repeatedly without much issue. However, when editing code blocks you have to be more careful. When you run a code cell you are running that piece of code. Even if you delete or edit the code block after running it the changes it made will remain until the Kernel is restarted.</p>
+
+<p>A good way to think about code cell execution in a notebook is that you are essentially copy pasting the code cell into a python console. The image below gives a visual example of this with the notebook cells on the left, and a python code that does the same set of commands on the right. You can try running the cells found in the left image by looking for the header “Editing Cells” in the Binder notebook “02-jupyter-notebook-interface.ipynb”.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_4_running_code.png" style="max-width: 60%;" alt="/Running%20Code" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>To show the dangers of rerunning cells we can try rerunning the two bottom cells containing the code <code class="language-plaintext highlighter-rouge">a = a + 2</code> and <code class="language-plaintext highlighter-rouge">print(a)</code>. This will be reflected as a fifth and sixth command executed in the python console. You can see this reflected in the Python console below where the same commands have been issued in the same order. So despite the fact that we only have four cells of python we have executed 6 cells worth of code.</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Re-running Cells</strong></p>
+  <hr />
+
+  <p>Rerunning code cells will erase the output of that code cell and update the counter next to the cell with the most recent time the cell was run.</p>
+
+</div>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_5_rerunning_code.png" style="max-width: 60%;" alt="/Rerunnig%20Cells" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<p>Rerunning code cells is <strong>not recommended</strong> since it obscures what the notebook’s code cells are doing and can make it very difficult for anyone reading your notebook to accurately rerun your analysis.</p>
+
+<h3 id="jupyter-notebook-cheatsheet">Jupyter Notebook Cheatsheet</h3>
+
+<p>The image below is a cheatsheet of some of the buttons not discussed in this episode that might be good to know for the future. Feel free to come back to it if you are confused later on.</p>
+
+<figure>
+  
+    <img src="/morea/data-wrangling/fig/E2_6_cheatsheet.png" style="max-width: 60%;" alt="/Notebook%20Cheatsheet" class="img-fluid mx-auto d-block border" />
+  
+  <figcaption style="text-align: center">
+    <small>
+      
+    </small>
+  </figcaption>
+</figure>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <ul>
+    <li>A Jupyter notebook is divided into cells that are either code, markdown, or raw.</li>
+    <li>Cells can be "run" leading to either the execution of code or formatting of markdown depending on the cell type.</li>
+    <li>Code cells can be rerun, but this should be avoided to prevent obscuring the notebooks workflow.</li>
+  </ul>
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling/experience-data-structures.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">3. Loading and Handling Pandas Data -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:20pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-10-05 19:51:18 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 53 readings
+      
+      
+      | 92 experiences
+      
+      
+      | 13 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>

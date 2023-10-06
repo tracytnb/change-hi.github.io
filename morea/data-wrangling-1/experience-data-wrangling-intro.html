@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Change-HI/EDU | 1. Data Wrangling Introduction </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="/css/themes/spacelab/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/020726ec0d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+
+  
+
+  <!-- Load JQuery, then use it to attach the class 'active' to navbar item currently displayed. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.nav-item').find('a[href="' + location.pathname + '"]').addClass('active');
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html"> Change-HI/EDU </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="/modules/">Modules</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="/outcomes/">Outcomes</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/readings/">Readings</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/experiences/">Experiences</a></li>
+        
+        
+        <li class="nav-item"><a class="nav-link" href="/assessments/">Assessments</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Internal fragment for displaying the breadcrumb bar -->
+<div class="breadcrumb-background" style="padding-top: 1em; padding-bottom: .01em">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/modules">Modules</a></li>
+        <li class="breadcrumb-item"><a href="/modules/"></a></li>
+        <li class="breadcrumb-item active">1. Data Wrangling Introduction</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="1-data-wrangling-introduction">1. Data Wrangling Introduction</h1>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Overview</strong></p>
+  <hr />
+
+  <p><strong>Questions</strong></p>
+  <ul>
+    <li>Why are Jupyter notebooks useful for cleaning and wrangling data?</li>
+  </ul>
+
+  <p><strong>Objectives</strong></p>
+  <ul>
+    <li>Understand how Jupyter notebooks provide a method of documenting the steps involved in cleaning and wrangling data.</li>
+  </ul>
+
+</div>
+
+<h3 id="why-should-i-care-about-this">Why should I care about this?</h3>
+
+<p>If you have ever worked with a set of data in an Excel spreadsheet, Google sheet or CSV file you have probably had to modify that data in some manner to use it. You probably have needed to add or remove columns and rows or do some summations or different arithmetic functions to the data. Excel and G-sheets work just fine for simple data. But what do you do when you have thousands and millions of rows of data? Or what if you have a bunch of the same type of dataset and your want to apply the same steps to each dataset or repeat this in the future? Manually doing this work doesn’t scale nor is what you did reproducible or easily shareable with others.</p>
+
+<p>Jupyter notebooks provide a solution to this problem, allowing you to scale, automate, document, and reproduce parts of or your entire analysis. They also provide a method by which you can test newer sections of your analysis as you move from having some initial data to an analysis product.</p>
+
+<p>Here you will learn the basics of utilizing jupyter notebooks by using Python and a library called Pandas (<a href="https://pandas.pydata.org/">Link to Pandas Website</a>). The Pandas library helps provide various bells and whistles for both cleaning and analyzing your data. However, since it is built on top of Python a basic understanding of the Python (<a href="https://www.python.org/">Link to Python Website</a>) programming language is required. Through these tools you will learn how to analyze a raw dataset by cleaning it up and formatting it so that it can be used for further analysis or other workflows.</p>
+
+<h3 id="what-this-lesson-will-not-teach-you">What this lesson will <strong>not</strong> teach you</h3>
+
+<ul>
+  <li>How to write basic python code</li>
+  <li>How to set up a notebook environment</li>
+  <li>How to run other programming languages e.g. R in jupyter notebooks</li>
+</ul>
+
+<blockquote class="callout">
+  <h2 id="notebook-programming-languages">Notebook Programming Languages</h2>
+
+  <p>Jupyter notebooks can contain various programming languages with R or Julia being possibilities.</p>
+
+</blockquote>
+
+<h3 id="lesson-structure">Lesson Structure</h3>
+
+<p>The structure for this lesson will require participants to run a jupyter notebook. In order to reduce the time required to get Jupyter notebooks setup and running we will be utilizing Binder (<a href="https://mybinder.org/">Link to Binder Website</a>). Binder allows us to run a jupyter notebook using a predefined environment and github repository right from our browser. For this lesson we have already setup a binder notebook that links to the github repository for this lesson. There will also be link at the top of each episode to the Binder website for this lesson.</p>
+
+<p><a href="https://mybinder.org/v2/gh/CI-TRACS/Data_Wrangling_with_Computational_Notebooks/HEAD">Link to Binder notebook for this Lesson</a></p>
+
+<div class="alert alert-success mt-3" role="alert">
+  <p><i class="fa-solid fa-globe fa-xl"></i> <strong>Key Points</strong></p>
+  <hr />
+
+  <p>Notebooks help connect the code for cleaning and wrangling data to the documentation explaining what is being done and why.</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>Acknowledgements</strong></p>
+  <hr />
+
+  <p>This workshop contains material we used and modified from the <a href="https://ci-tracs.github.io/Data_Wrangling_with_Computational_Notebooks/">Introduction to Data Wrangling with Computational Notebooks workshop</a>.</p>
+
+</div>
+
+<div style="text-align: right; padding-bottom: 10px">
+  <hr />
+  <button type="button" onclick="window.location='/morea/data-wrangling/experience-jupyter-interface.html'" class="btn btn-primary">
+    <p style="font-size:16px; margin: 0">2. Jupyter Notebook Interface -&gt;</p>
+    <p style="font-size:12px; margin: 0">2:10pm</p>
+    </button>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Maybe find a different way?
+<script src="/js/scrollIfAnchor.js"></script>
+-->
+
+<footer class="footer footer-background" style="padding-top: 1em; padding-bottom: 1em">
+  <div class="container text-center">
+    
+    
+
+    
+    <p style="margin: 0">Powered by the <a class="footer-link" href="https://morea-framework.github.io/">Morea Framework</a> (Theme: spacelab)<br>
+      Last update on: <span>2023-10-05 19:51:18 -1000</span></p>
+
+    <p style="margin: 0">
+      
+      18 modules
+      
+      | 17 outcomes
+      
+      
+      | 53 readings
+      
+      
+      | 92 experiences
+      
+      
+      | 13 assessments
+      
+    </p>
+  </div>
+</footer>
+
+
+<!-- Load Bootstrap JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Add anchors to pages. -->
+<script>anchors.add();</script>
+
+
+</body>
+</html>
